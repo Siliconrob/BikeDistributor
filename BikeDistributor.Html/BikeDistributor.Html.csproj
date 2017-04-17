@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Markdig" Version="0.10.7" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\BikeDistributor.Receipt\BikeDistributor.Receipt.csproj" />
   </ItemGroup>
 

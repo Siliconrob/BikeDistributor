@@ -1,4 +1,7 @@
+using System;
 using System.Collections.Generic;
+using System.IO;
+using BikeDistributor.Html;
 using BikeDistributor.Receipt;
 using ServiceStack;
 using Xunit;
@@ -23,6 +26,24 @@ namespace BikeDistributor.Tests
       var receipts = customer.ToReceipt(1);
       var receipt = GetType().ReadData<ItemizedReceipt>("Elite/EliteDiscountReceipt.json");
       Assert.Equal(receipt.ToJson(), receipts.ToJson());
+    }
+
+    [Fact]
+    public void HtmlReceiptTest()
+    {
+      var theBike = GetType().ReadData<Bike>("Elite/Elite.json");
+      var customer = GetType().ReadData<Customer>("Customer.json");
+      Assert.NotNull(customer);
+      (customer.Orders ?? new List<BikeOrder>()).Clear();
+      customer.Orders = customer.Orders ?? new List<BikeOrder>();
+      customer.Orders?.Add(new BikeOrder
+      {
+        Id = 1,
+        Details = new[] { new OrderDetail<Bike> { Quantity = 1, Unit = theBike } }
+      });
+      var receipts = customer.ToReceipt(1).ToHTML().ReplaceAll("\n", "");
+      var receipt = File.ReadAllText(Path.Combine(GetType().TestData(), "Elite/EliteSignalReceipt.html")).ReplaceAll(Environment.NewLine, "");
+      Assert.True(receipt.EqualsIgnoreCase(receipts));
     }
 
     [Fact]
