@@ -1,0 +1,12 @@
+﻿{
+  "Title": "Anywhere Bike Shop",
+  "Items": [
+    {
+      "Quantity": 10,
+      "Text": "10 x Specialized Venge Elite = 16000.0",
+      "SubTotal": 16000.0
+    }
+  ],
+  "Tax": 1160.00000,
+  "Total": 17160.00000
+}

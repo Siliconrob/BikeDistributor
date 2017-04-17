@@ -1,0 +1,12 @@
+﻿{
+  "Title": "Anywhere Bike Shop",
+  "Items": [
+    {
+      "Quantity": 1,
+      "Text": "1 x Giant Defy 1 = 1000",
+      "SubTotal": 1000
+    }
+  ],
+  "Tax": 72.5000,
+  "Total": 1072.5000
+}

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using BikeDistributor.Receipt;
 using ServiceStack;
 using Xunit;
 
@@ -7,9 +8,45 @@ namespace BikeDistributor.Tests
   public class EliteTests
   {
     [Fact]
+    public void ReceiptWithDiscountTest()
+    {
+      var theBike = GetType().ReadData<Bike>("Elite/Elite.json");
+      var customer = GetType().ReadData<Customer>("Customer.json");
+      Assert.NotNull(customer);
+      (customer.Orders ?? new List<BikeOrder>()).Clear();
+      customer.Orders = customer.Orders ?? new List<BikeOrder>();
+      customer.Orders?.Add(new BikeOrder
+      {
+        Id = 1,
+        Details = new[] { new OrderDetail<Bike> { Quantity = 10, Unit = theBike } }
+      });
+      var receipts = customer.ToReceipt(1);
+      var receipt = GetType().ReadData<ItemizedReceipt>("Elite/EliteDiscountReceipt.json");
+      Assert.Equal(receipt.ToJson(), receipts.ToJson());
+    }
+
+    [Fact]
+    public void ReceiptTest()
+    {
+      var theBike = GetType().ReadData<Bike>("Elite/Elite.json");
+      var customer = GetType().ReadData<Customer>("Customer.json");
+      Assert.NotNull(customer);
+      (customer.Orders ?? new List<BikeOrder>()).Clear();
+      customer.Orders = customer.Orders ?? new List<BikeOrder>();
+      customer.Orders?.Add(new BikeOrder
+      {
+        Id = 1,
+        Details = new[] { new OrderDetail<Bike> { Quantity = 1, Unit = theBike } }
+      });
+      var receipts = customer.ToReceipt(1);
+      var receipt = GetType().ReadData<ItemizedReceipt>("Elite/EliteSingleReceipt.json");
+      Assert.Equal(receipt.ToJson(), receipts.ToJson());
+    }
+
+    [Fact]
     public void SingleBikeOrder()
     {
-      var theBike = GetType().ReadData<Bike>("Elite.json");
+      var theBike = GetType().ReadData<Bike>("Elite/Elite.json");
       var customer = GetType().ReadData<Customer>("Customer.json");
       Assert.NotNull(customer);
       (customer.Orders ?? new List<BikeOrder>()).Clear();
@@ -20,14 +57,14 @@ namespace BikeDistributor.Tests
       });
       Assert.NotNull(customer.Orders);
       Assert.NotEmpty(customer.Orders);
-      var singleOrder = GetType().ReadData<Customer>("EliteSingleCustomer.json");
+      var singleOrder = GetType().ReadData<Customer>("Elite/EliteSingleCustomer.json");
       Assert.Equal(singleOrder.ToJson(), customer.ToJson());
     }
 
     [Fact]
     public void ConstantOK()
     {
-      var theBike = GetType().ReadData<Bike>("Elite.json");
+      var theBike = GetType().ReadData<Bike>("Elite/Elite.json");
       ConstantMatch(theBike);
       ConstantIdMisMatch(theBike);
       ConstantBrandMisMatch(theBike);

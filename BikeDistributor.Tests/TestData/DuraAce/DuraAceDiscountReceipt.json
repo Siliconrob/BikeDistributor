@@ -1,0 +1,12 @@
+﻿{
+  "Title": "Anywhere Bike Shop",
+  "Items": [
+    {
+      "Quantity": 5,
+      "Text": "5 x Specialized S-Works Venge Dura-Ace = 20000.0",
+      "SubTotal": 20000.0
+    }
+  ],
+  "Tax": 1450.00000,
+  "Total": 21450.00000
+}

@@ -22,22 +22,40 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="TestData\DefySingleCustomer.json">
+    <None Update="TestData\Defy\DefyDiscountReceipt.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="TestData\DuraAceSingleCustomer.json">
+    <None Update="TestData\Defy\DefySingleReceipt.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="TestData\EliteSingleCustomer.json">
+    <None Update="TestData\Defy\DefySingleCustomer.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="TestData\DuraAce.json">
+    <None Update="TestData\DuraAce\DuraAceDiscountReceipt.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="TestData\Elite.json">
+    <None Update="TestData\DuraAce\DuraAceSingleReceipt.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="TestData\Defy.json">
+    <None Update="TestData\DuraAce\DuraAceSingleCustomer.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestData\Elite\EliteDiscountReceipt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestData\Elite\EliteSingleReceipt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestData\Elite\EliteSingleCustomer.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestData\DuraAce\DuraAce.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestData\Elite\Elite.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestData\Defy\Defy.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="TestData\Customer.json">

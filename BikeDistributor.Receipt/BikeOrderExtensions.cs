@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 namespace BikeDistributor.Receipt
@@ -19,17 +18,18 @@ namespace BikeDistributor.Receipt
         return new ItemizedReceipt();
       }
       var currentOrder = allOrders.FirstOrDefault(z => z.Id == orderId) ?? new BikeOrder();
-      if (currentOrder.Id == 0)
-      {
-        return new ItemizedReceipt();
-      }
+      return currentOrder.Id == 0 ? new ItemizedReceipt() : customer.BikeReceipt(currentOrder);
+    }
 
+    private static ItemizedReceipt BikeReceipt(this Customer customer, BikeOrder currentOrder)
+    {
       var lines = currentOrder.ToLineItems();
-      var sum = lines.Sum(z => z.Total);
+      var sum = lines.Sum(z => z.SubTotal);
       var tax = (Tax.Cities().FirstOrDefault(z => z.Key.Equals(customer.Addresses.Billing.City)).Value ?? (j => 0)).Invoke(sum);
 
       var receipt = new ItemizedReceipt
       {
+        Title = customer.Name,
         Items = lines,
         Tax = tax,
         Total = sum + tax
@@ -44,7 +44,7 @@ namespace BikeDistributor.Receipt
         select new LineItem
         {
           Quantity = order.Quantity,
-          Total = lineAmount,
+          SubTotal = lineAmount,
           Text = $"{order.Quantity} x {order.Unit.Brand} {order.Unit.Model} = {lineAmount}"
         }).ToList();
     }

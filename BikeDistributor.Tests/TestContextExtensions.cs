@@ -13,12 +13,12 @@ namespace BikeDistributor.Tests
 
     public static string TestData(this System.Type current)
     {
-      return System.IO.Path.Combine(current.LocalPath(), "TestData");
+      return Path.Combine(current.LocalPath(), "TestData");
     }
 
     public static string LocalPath(this System.Type current)
     {
-      return System.IO.Path.GetDirectoryName(current.GetTypeInfo().Assembly.Location);
+      return Path.GetDirectoryName(current.GetTypeInfo().Assembly.Location);
     }
   }
 }
