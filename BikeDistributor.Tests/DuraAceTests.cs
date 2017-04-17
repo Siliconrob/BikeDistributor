@@ -1,16 +1,13 @@
-using ServiceStack;
 using Xunit;
 
 namespace BikeDistributor.Tests
 {
-  public class DuraAceBikeTests
+  public class DuraAceTests
   {
-    public const string DuraAce = "{\"Id\": 2,\"Brand\":\"Specialized\",\"Model\":\"S-Works Venge Dura-Ace\",\"Price\":5000}";
-
     [Fact]
     public void ConstantOK()
     {
-      var theBike = DuraAce.FromJson<Bike>();
+      var theBike = GetType().ReadData<Bike>("DuraAce.json");
       ConstantMatch(theBike);
       ConstantIdMisMatch(theBike);
       ConstantBrandMisMatch(theBike);

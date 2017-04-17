@@ -1,16 +1,21 @@
-using ServiceStack;
 using Xunit;
 
 namespace BikeDistributor.Tests
 {
-  public class DefyBikeTests
+  public class DefyTests
   {
-    public const string Defy = "{\"Id\": 1,\"Brand\":\"Giant\",\"Model\":\"Defy 1\",\"Price\":1000}";
+    [Fact]
+    public void SingleBikeOrder()
+    {
+      var theBike = GetType().ReadData<Bike>("Defy.json");
+      var customer = GetType().ReadData<Customer>("Customer.json");
+      Assert.NotNull(customer);
+    }
 
     [Fact]
     public void ConstantOK()
     {
-      var theBike = Defy.FromJson<Bike>();
+      var theBike = GetType().ReadData<Bike>("Defy.json");
       ConstantMatch(theBike);
       ConstantIdMisMatch(theBike);
       ConstantBrandMisMatch(theBike);

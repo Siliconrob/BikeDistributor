@@ -1,16 +1,14 @@
-using ServiceStack;
 using Xunit;
 
 namespace BikeDistributor.Tests
 {
-  public class EliteBikeTests
+  public class EliteTests
   {
-    public const string Elite = "{\"Id\": 3,\"Brand\":\"Specialized\",\"Model\":\"Venge Elite\",\"Price\":2000}";
 
     [Fact]
     public void ConstantOK()
     {
-      var theBike = Elite.FromJson<Bike>();
+      var theBike = GetType().ReadData<Bike>("EliteBike.json");
       ConstantMatch(theBike);
       ConstantIdMisMatch(theBike);
       ConstantBrandMisMatch(theBike);

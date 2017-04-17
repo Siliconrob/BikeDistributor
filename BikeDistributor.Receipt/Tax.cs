@@ -5,11 +5,11 @@ namespace BikeDistributor.Receipt
 {
   public static class Tax
   {
-    public static IEnumerable<Func<double, double>> Jurisdictions()
+    public static IEnumerable<Func<decimal, decimal>> Jurisdictions()
     {
-      var theRates = new List<Func<double, double>>
+      var theRates = new List<Func<decimal, decimal>>
       {
-        unitPrice => unitPrice * .0725d
+        unitPrice => unitPrice * .0725M
       };
       return theRates;
     }

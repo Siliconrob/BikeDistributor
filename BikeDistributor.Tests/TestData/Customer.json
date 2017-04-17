@@ -1,0 +1,38 @@
+﻿{
+  "Id": 0,
+  "Name": "Anywhere Bike Shop",
+  "Addresses": {
+    "Mailing": {
+      "Line1": "1 Main Street",
+      "Line2": "Suite 100",
+      "Building": "Tower 1",
+      "City": "Jumbotown",
+      "CountryRegion": "United Nations",
+      "FloorLevel": "First",
+      "PostalCode": "12345",
+      "StateProvince": "Delaware"
+    },
+    "Billing": {
+      "Line1": "1 Main Street",
+      "Line2": "Suite 100",
+      "Building": "Tower 1",
+      "City": "Jumbotown",
+      "CountryRegion": "United Nations",
+      "FloorLevel": "First",
+      "PostalCode": "12345",
+      "StateProvince": "Delaware"
+    }
+  },
+  "Contact": {
+    "Contact": {
+      "Title": "CEO",
+      "FirstName": "Bubba",
+      "LastName": "Johnson"
+    },
+    "Email": "bjohnson@blah.com",
+    "Business": {
+      "CountryCode": 1,
+      "Number": "123-123-1234"
+    }
+  }
+}
