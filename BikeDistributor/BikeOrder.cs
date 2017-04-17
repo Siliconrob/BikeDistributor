@@ -6,6 +6,6 @@ namespace BikeDistributor
   {
     public int Id { get; set; }
     public TimeStamps TimeStamps { get; set; }
-    public IEnumerable<UnitDetail<Bike>> Details { get; set; }
+    public IEnumerable<OrderDetail<Bike>> Details { get; set; }
   }
 }

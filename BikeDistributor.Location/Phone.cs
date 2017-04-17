@@ -2,7 +2,7 @@
 {
   public class Phone
   {
-    public int CountyCode { get; set; }
+    public int CountryCode { get; set; }
     public string Number { get; set; }
   }
 }

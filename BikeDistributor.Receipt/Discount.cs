@@ -16,21 +16,9 @@ namespace BikeDistributor.Receipt
       };
     }
 
-
     public static IEnumerable<Func<int, decimal, decimal>> Applicable(BikeOrder input)
     {
-
-
-
-
-      //public static IEnumerable<Func<BikeOrder, double>> Applicable()
-      //{
-      //  var theRates = new List<Func<BikeOrder, double>>
-      //  {
-      //    new Func<BikeOrder, double>(order => { return order.Details. })
-
-      //  };
-      //  return theRates;
-      //}
+      throw new NotImplementedException();
     }
   }
+}
