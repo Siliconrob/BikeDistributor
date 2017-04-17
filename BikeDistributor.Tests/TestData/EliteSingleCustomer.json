@@ -34,5 +34,21 @@
       "CountryCode": 1,
       "Number": "123-123-1234"
     }
-  }
+  },
+  "Orders": [
+    {
+      "Id": 0,
+      "Details": [
+        {
+          "Unit": {
+            "Id": 3,
+            "Brand": "Specialized",
+            "Model": "Venge Elite",
+            "Price": 2000
+          },
+          "Quantity": 1
+        }
+      ]
+    }
+  ]
 }

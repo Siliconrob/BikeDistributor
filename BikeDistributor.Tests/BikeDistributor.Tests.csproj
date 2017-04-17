@@ -12,6 +12,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\BikeDistributor.Html\BikeDistributor.Html.csproj" />
+    <ProjectReference Include="..\BikeDistributor.Receipt\BikeDistributor.Receipt.csproj" />
     <ProjectReference Include="..\BikeDistributor\BikeDistributor.csproj" />
   </ItemGroup>
 
@@ -20,6 +22,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="TestData\DefySingleCustomer.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestData\DuraAceSingleCustomer.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestData\EliteSingleCustomer.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Update="TestData\DuraAce.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

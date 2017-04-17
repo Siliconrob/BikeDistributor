@@ -34,5 +34,21 @@
       "CountryCode": 1,
       "Number": "123-123-1234"
     }
-  }
+  },
+  "Orders": [
+    {
+      "Id": 0,
+      "Details": [
+        {
+          "Unit": {
+            "Id": 2,
+            "Brand": "Specialized",
+            "Model": "S-Works Venge Dura-Ace",
+            "Price": 5000
+          },
+          "Quantity": 1
+        }
+      ]
+    }
+  ]
 }
