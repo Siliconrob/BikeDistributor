@@ -11,7 +11,7 @@ namespace BikeDistributor.Receipt
         .Select(z => z.Invoke(lineItem.Quantity, lineItem.Unit.Price))
         .FirstOrDefault(y => y > 0);
 
-      if (discountPrice != 0 && normalPrice > discountPrice)
+      if (discountPrice > 0 && normalPrice > discountPrice)
       {
         return discountPrice;
       }
