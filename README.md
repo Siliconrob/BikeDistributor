@@ -3,12 +3,14 @@
 ## My Build Environment
 
 * .NET Core Standard 1.6
+* .NET Core App 1.1 - for xUnit test project
 * Windows 10
 
 ## Tools used to create
 
 * Visual Studio 2017 - Tried using some other environments like Project Rider from JetBrains (project is coming along well though), but came back to this for immediate productivity
 * xUnit for tests - I know NUnit better, but xUnit seems clean and simple and also is a default in Visual Studio
+* As these tools and frameworks are new, so I would recommend the same environment and tools initially or send me a GitHub Issue and I will fix it or Pull Requests are welcome.
 
 ## Dependencies used and why
 
