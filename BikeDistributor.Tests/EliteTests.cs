@@ -11,7 +11,25 @@ namespace BikeDistributor.Tests
   public class EliteTests
   {
     [Fact]
-    public void ReceiptWithDiscountTest()
+    public void HtmlReceiptDiscount()
+    {
+      var theBike = GetType().ReadData<Bike>("Elite/Elite.json");
+      var customer = GetType().ReadData<Customer>("Customer.json");
+      Assert.NotNull(customer);
+      (customer.Orders ?? new List<BikeOrder>()).Clear();
+      customer.Orders = customer.Orders ?? new List<BikeOrder>();
+      customer.Orders?.Add(new BikeOrder
+      {
+        Id = 1,
+        Details = new[] { new OrderDetail<Bike> { Quantity = 1, Unit = theBike } }
+      });
+      var receipts = customer.ToReceipt(1).ToHTML().ReplaceAll("\n", "");
+      var receipt = File.ReadAllText(Path.Combine(GetType().TestData(), "Elite/EliteDiscountReceipt.html")).ReplaceAll(Environment.NewLine, "");
+      Assert.True(receipt.EqualsIgnoreCase(receipts));
+    }
+
+    [Fact]
+    public void ReceiptWithDiscount()
     {
       var theBike = GetType().ReadData<Bike>("Elite/Elite.json");
       var customer = GetType().ReadData<Customer>("Customer.json");
@@ -29,7 +47,7 @@ namespace BikeDistributor.Tests
     }
 
     [Fact]
-    public void HtmlReceiptTest()
+    public void HtmlReceipt()
     {
       var theBike = GetType().ReadData<Bike>("Elite/Elite.json");
       var customer = GetType().ReadData<Customer>("Customer.json");
@@ -42,12 +60,12 @@ namespace BikeDistributor.Tests
         Details = new[] { new OrderDetail<Bike> { Quantity = 1, Unit = theBike } }
       });
       var receipts = customer.ToReceipt(1).ToHTML().ReplaceAll("\n", "");
-      var receipt = File.ReadAllText(Path.Combine(GetType().TestData(), "Elite/EliteSignalReceipt.html")).ReplaceAll(Environment.NewLine, "");
+      var receipt = File.ReadAllText(Path.Combine(GetType().TestData(), "Elite/EliteSingleReceipt.html")).ReplaceAll(Environment.NewLine, "");
       Assert.True(receipt.EqualsIgnoreCase(receipts));
     }
 
     [Fact]
-    public void ReceiptTest()
+    public void Receipt()
     {
       var theBike = GetType().ReadData<Bike>("Elite/Elite.json");
       var customer = GetType().ReadData<Customer>("Customer.json");

@@ -10,8 +10,27 @@ namespace BikeDistributor.Tests
 {
   public class DefyTests
   {
+
     [Fact]
-    public void ReceiptWithDiscountTest()
+    public void HtmlReceiptWithDiscount()
+    {
+      var theBike = GetType().ReadData<Bike>("Defy/Defy.json");
+      var customer = GetType().ReadData<Customer>("Customer.json");
+      Assert.NotNull(customer);
+      (customer.Orders ?? new List<BikeOrder>()).Clear();
+      customer.Orders = customer.Orders ?? new List<BikeOrder>();
+      customer.Orders?.Add(new BikeOrder
+      {
+        Id = 1,
+        Details = new[] { new OrderDetail<Bike> { Quantity = 20, Unit = theBike } }
+      });
+      var receipts = customer.ToReceipt(1).ToHTML().ReplaceAll("\n", "");
+      var receipt = File.ReadAllText(Path.Combine(GetType().TestData(), "Defy/DefyDiscountReceipt.html")).ReplaceAll(Environment.NewLine, "");
+      Assert.True(receipt.EqualsIgnoreCase(receipts));
+    }
+
+    [Fact]
+    public void ReceiptWithDiscount()
     {
       var theBike = GetType().ReadData<Bike>("Defy/Defy.json");
       var customer = GetType().ReadData<Customer>("Customer.json");
@@ -29,7 +48,7 @@ namespace BikeDistributor.Tests
     }
 
     [Fact]
-    public void HtmlReceiptTest()
+    public void HtmlReceipt()
     {
       var theBike = GetType().ReadData<Bike>("Defy/Defy.json");
       var customer = GetType().ReadData<Customer>("Customer.json");
@@ -47,7 +66,7 @@ namespace BikeDistributor.Tests
     }
 
     [Fact]
-    public void ReceiptTest()
+    public void Receipt()
     {
       var theBike = GetType().ReadData<Bike>("Defy/Defy.json");
       var customer = GetType().ReadData<Customer>("Customer.json");

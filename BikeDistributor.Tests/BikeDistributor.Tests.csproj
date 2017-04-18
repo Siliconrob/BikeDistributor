@@ -25,6 +25,9 @@
     <None Update="TestData\Defy\DefyDiscountReceipt.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Update="TestData\Defy\DefyDiscountReceipt.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Update="TestData\Defy\DefySingleReceipt.html">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -32,6 +35,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="TestData\Defy\DefySingleCustomer.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestData\DuraAce\DuraAceDiscountReceipt.html">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="TestData\DuraAce\DuraAceSingleReceipt.html">
@@ -46,7 +52,10 @@
     <None Update="TestData\DuraAce\DuraAceSingleCustomer.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="TestData\Elite\EliteSignalReceipt.html">
+    <None Update="TestData\Elite\EliteDiscountReceipt.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestData\Elite\EliteSingleReceipt.html">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="TestData\Elite\EliteDiscountReceipt.json">

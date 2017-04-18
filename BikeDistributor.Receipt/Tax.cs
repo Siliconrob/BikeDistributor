@@ -10,7 +10,7 @@ namespace BikeDistributor.Receipt
       var theRates = new Dictionary<string, Func<decimal, decimal>>
       {
         { "Jumbotown", value => value * .0725M },
-        { "Badlands", value => value * .0105M }
+        { "Badlands", value => value * .1050M }
       };
       return theRates;
     }
