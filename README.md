@@ -1,8 +1,9 @@
 # Bike Distributor - From :chestnut: to :deciduous_tree:
 
-## Environment
+## My Build Environment
 
-.NET Core Standard 1.6
+* .NET Core Standard 1.6
+* Windows 10
 
 ## Tools used to create
 
